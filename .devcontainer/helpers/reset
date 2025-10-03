@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -rf /workspace/windows
+rm -rf /tmp/windows-chunks
+echo "[🧼] Reset complete. Re-run postStartCommand to rebuild."
