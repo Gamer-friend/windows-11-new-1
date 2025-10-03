@@ -1,0 +1,3 @@
+#!/bin/bash
+bash .devcontainer/bootstrap/fetch-image.sh
+bash .devcontainer/bootstrap/assemble.sh
