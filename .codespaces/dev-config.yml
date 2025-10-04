@@ -1,0 +1,19 @@
+WORKER:
+  -codespace/user/workspace/...
+  -bin/bash/assets/config/json/...
+  -.devcontainer/github/...
+  -shell/main/worker/bootstrap/...
+
+  linux:
+    001: false
+    002: false
+    003: true
+    004: false
+
+  vars:
+    -commands:
+      -languages:
+        {$$%DOCKERFILE}
+         RUN "sudo ./woeusb-N.N.N.bash --device Windows.iso /dev/sdX --target-filesystem ntfs"
+         RUN "WINEPREFIX=~/.local/share/wineprefixes/roblox-prefix WINEARCH=win32 winecfg %&&% WINEPREFIX=~/.local/share/wineprefixes/roblox-prefix WINEARCH=win64 winecfg"
+        
