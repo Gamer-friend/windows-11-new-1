@@ -1,13 +1,9 @@
 #!/bin/bash
-set -e
+mkdir -p /tmp/windows-chunks
+cd /tmp/windows-chunks
 
-echo "[🔧] Verifying disk space..."
-bash .devcontainer/bootstrap/verify-space.sh
+curl -L -O "https://github.com/Gamer-friend/windows-11-new-1/releases/download/v1.0/data.7z.001"
+curl -L -O "https://github.com/Gamer-friend/windows-11-new-1/releases/download/v1.0/data.7z.002"
 
-echo "[📦] Fetching Windows image chunks..."
-bash .devcontainer/bootstrap/fetch-image.sh
-
-echo "[🧩] Assembling image..."
-bash .devcontainer/bootstrap/assemble.sh
-
-echo "[✅] Ready to launch Windows VM. Run './helpers/start' to begin."
+cat data.7z.* > data.7z
+7z x data.7z -o/workspaces/windows
